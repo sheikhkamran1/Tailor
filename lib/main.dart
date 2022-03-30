@@ -6,7 +6,8 @@ import 'package:flutter_application_1/pages/dashboardpages/tailordetails.dart';
 import 'package:flutter_application_1/pages/drawerpages/addtailor.dart';
 import 'package:flutter_application_1/pages/drawerpages/privacy.dart';
 import 'package:flutter_application_1/provider/provider.dart';
-import 'package:flutter_application_1/view/utility/defulttab.dart';
+import 'package:flutter_application_1/view/bottomnavigator.dart';
+import 'package:flutter_application_1/view/dashboard.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.white,
             iconTheme: IconTheme.of(context).copyWith(color: Colors.black)),
       ),
-      home: Tabbardemo(),
+      home: BottomNavigatorScreen(),
       routes: {
         "/tailordetails": (context) => const TailorDetails(),
         "/productdetails": (context) => const ProductDetailsPage(),

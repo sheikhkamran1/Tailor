@@ -7,139 +7,147 @@ class DashboradScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: const CustomDrawer(),
-      //--------------------appbar---------------------//
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 1,
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.person_outline_sharp,
-            ),
-            onPressed: () {},
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Tailor",
+            style: TextStyle(color: Colors.black),
           ),
-          IconButton(
-            icon: const Icon(
-              Icons.notifications_none_outlined,
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.shopping_cart_outlined,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, "/checkoutpage");
-            },
-          ),
-          const SizedBox(width: 5),
-        ],
-        title: const Text(
-          "Tailor",
-          style: TextStyle(color: Colors.black),
         ),
-      ),
-      //--------------------appbar Ends---------------------//
+        // drawer: const CustomDrawer(),
+        //--------------------appbar---------------------//
+        // appBar: AppBar(
+        //   backgroundColor: Colors.white,
+        //   elevation: 1,
+        //   actions: [
+        //     IconButton(
+        //       icon: const Icon(
+        //         Icons.person_outline_sharp,
+        //       ),
+        //       onPressed: () {},
+        //     ),
+        //     IconButton(
+        //       icon: const Icon(
+        //         Icons.notifications_none_outlined,
+        //       ),
+        //       onPressed: () {},
+        //     ),
+        //     IconButton(
+        //       icon: const Icon(
+        //         Icons.shopping_cart_outlined,
+        //       ),
+        //       onPressed: () {
+        //         Navigator.pushNamed(context, "/checkoutpage");
+        //       },
+        //     ),
+        //     const SizedBox(width: 5),
+        //   ],
+        //   title: const Text(
+        //     "Tailor",
+        //     style: TextStyle(color: Colors.black),
+        //   ),
+        // ),
+        //--------------------appbar Ends---------------------//
 
-      //--------------------body Ends---------------------//
-      body: SingleChildScrollView(
-        child: Container(
-          color: const Color(0xffD5DADA),
-          child: Column(
-            children: [
-              Column(
-                children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color.fromRGBO(0, 169, 191, 1),
-                          Colors.greenAccent,
+        //--------------------body Ends---------------------//
+        body: SingleChildScrollView(
+          child: Container(
+            color: const Color(0xffD5DADA),
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromRGBO(0, 169, 191, 1),
+                            Colors.greenAccent,
+                          ],
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          const ListTile(
+                            horizontalTitleGap: -8,
+                            leading: Icon(
+                              Icons.place_outlined,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                            title: Text(
+                              'Deliver to ithari ',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            subtitle: Text("Nepal",
+                                style: TextStyle(color: Colors.black)),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SearchBarAnimation(
+                              textEditingController: TextEditingController(),
+                              isOriginalAnimation: true,
+                              enableKeyboardFocus: true,
+                              isSearchBoxOnRightSide: true,
+                              onExpansionComplete: () {
+                                debugPrint(
+                                    'do something just after searchbox is opened.');
+                              },
+                              onCollapseComplete: () {
+                                debugPrint(
+                                    'do something just after searchbox is closed.');
+                              },
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                    child: Column(
-                      children: [
-                        const ListTile(
-                          horizontalTitleGap: -8,
-                          leading: Icon(
-                            Icons.place_outlined,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          title: Text(
-                            'Deliver to ithari ',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                          subtitle: Text("Nepal",
-                              style: TextStyle(color: Colors.black)),
+                  ],
+                ),
+                Container(
+                  color: Colors.white,
+                  height: 5,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Container(
+                      height: 170,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.network(
+                          "https://widethread.com/wp-content/uploads/2019/08/FB-Cover-min-1024x334.jpg",
+                          fit: BoxFit.cover,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: SearchBarAnimation(
-                            textEditingController: TextEditingController(),
-                            isOriginalAnimation: true,
-                            enableKeyboardFocus: true,
-                            isSearchBoxOnRightSide: true,
-                            onExpansionComplete: () {
-                              debugPrint(
-                                  'do something just after searchbox is opened.');
-                            },
-                            onCollapseComplete: () {
-                              debugPrint(
-                                  'do something just after searchbox is closed.');
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                color: Colors.white,
-                height: 5,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Container(
-                    height: 170,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Image.network(
-                        "https://widethread.com/wp-content/uploads/2019/08/FB-Cover-min-1024x334.jpg",
-                        fit: BoxFit.cover,
                       ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: const Color(0xff30404f),
+                      ),
+                      width: MediaQuery.of(context).size.width,
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: const Color(0xff30404f),
-                    ),
-                    width: MediaQuery.of(context).size.width,
                   ),
                 ),
-              ),
-              const CustomTailorsNearYou(),
-              const SizedBox(
-                height: 5,
-              ),
-              const CustomListview(),
-              const SizedBox(
-                height: 5,
-              ),
-              const CustomShoes(),
-              const SizedBox(
-                height: 5,
-              ),
-              const CustomRequestStitch(),
-            ],
+                const CustomTailorsNearYou(),
+                const SizedBox(
+                  height: 5,
+                ),
+                const CustomListview(),
+                const SizedBox(
+                  height: 5,
+                ),
+                const CustomShoes(),
+                const SizedBox(
+                  height: 5,
+                ),
+                const CustomRequestStitch(),
+              ],
+            ),
           ),
         ),
       ),
